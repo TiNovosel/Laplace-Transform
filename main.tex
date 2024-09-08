@@ -10,7 +10,7 @@
 \begin{document}
 \maketitle
 
-When I was younger I played a lot of video games. Cheat codes were always there to make my playing much more enjoyable. The same feeling I had when I first started to use Laplace transfer, when dealing with differential equations, to one more time make my life easier. It really felt like life hack, but for long time I was not so sure where does the whole idea comes from.
+When I was younger, I played a lot of video games. Cheat codes were always there to make the experience much more enjoyable. I had the same feeling when I first started using Laplace transforms to solve differential equations—it felt like another life hack. For a long time, however, I wasn’t sure where the whole idea came from.
 \vspace{1cm}
 
 \noindent One way to demystify the topic is to start with \textbf{power series}.
@@ -35,7 +35,7 @@ When I was younger I played a lot of video games. Cheat codes were always there 
 
 \newpage
 
-\noindent Now we can think of equation (\ref{eq:markedpss}) as associating discrete function of parameters of the power series to the sum of the power series, which can also be viewed as taking a discrete function defined for positive integers and converting it into continuous function.\\
+\noindent Now, we can think of equation (\ref{eq:markedpss}) as associating the discrete function of the parameters of the power series with the sum of the power series. This can also be viewed as taking a discrete function defined for positive integers and converting it into a continuous function.\\
 
 \begin{equation}
     a(n) \rightarrow A(x)
@@ -43,13 +43,13 @@ When I was younger I played a lot of video games. Cheat codes were always there 
 \\
 Some examples of this could be, if we take as discrete function:
 \begin{itemize}
-    \item $a(n) = 1$, left hand sight then becomes $1 + x + x^2 + x^3 + ...w$ and from \textit{Maclaurin Expansions} we can transform this power series to this exprassion $\frac{1}{1-x}$ with restricted domain to $|x| < 1$.
+    \item $a(n) = 1$, left hand sight then becomes $1 + x + x^2 + x^3 + ...$ and from \textit{Maclaurin Expansions} we can transform power series to this exprassion $\frac{1}{1-x}$ with restricted domain to $|x| < 1$.
 
     \item $a(n) = \frac{1}{n!}$, power series is then $1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + ...$  and this expansion equals to well known $e^x$\\
     \\
 \end{itemize}
 
-Now, even though not motivated, let's do the continuous analog to the power series, where we are allowed to take every real value between and not only positive integers.\\
+Now, even though it's not motivated, let's do the continuous analog of the power series, where we are allowed to take every real value, not just positive integers.\\
 \begin{equation}
     n = 0,1,2,3,... \rightarrow t \in {0 \leq t < \infty}
 \end{equation}\\
@@ -61,7 +61,7 @@ Now, even though not motivated, let's do the continuous analog to the power seri
     \int_0^{\infty} a(t)x^t \, dt = A(x)
 \end{equation}\\
 
-\noindent Having $x$ as a base of the exponential is not so practical thing to have when solving the integration so we will make (\ref{eq:conti}) a bit more convenient with natural base $e$.
+\noindent Having $x$ as a base of the exponential is not very practical  when solving the integration, so we will modify equation (\ref{eq:conti}) to make it more convenient by using the natural base $e$.
 
 \begin{equation}
     x^t = e^{(ln(x))t}
@@ -75,19 +75,19 @@ Now, even though not motivated, let's do the continuous analog to the power seri
 
 \newpage
 
-Variable $ln(x)$ is not so aesthetic to have in equation so there comes infamous \textbf{s} in game! This substitution looks like:\\
+The variable $ln(x)$ is not very aesthetically pleasing to have in equation so the infamous \textbf{s} comes into play! This substitution looks like:\\
 \begin{equation}
     -s = ln(x)
 \end{equation}\\
 
-\noindent Minus on the left side is to always have \textbf{$s$} positive because of (\ref{eq:xrange}) and functions are mostly called $f(t)$ and not $a(t)$ so this will change too, just for the looks of it. After all this cosmetic changes we finally ends up with:\\
+\noindent The minus sign on the left side ensures that $s$ is always positive due to (\ref{eq:xrange}). Additionally, functions are usually denoted as $f(t)$ rather than $a(t)$, so we will make that change as well, purely for the looks. After all these cosmetic changes, we finally end up with:\\
 
 \begin{equation}
 \label{eq:laplace}
     \int_0^{\infty} f(t)e^{-st} \, dt = F(s)
 \end{equation}\\
 
-\noindent This proposition (\ref{eq:laplace}), called \textbf{Laplace transform} is nothing more than a \textbf{continuous analog to the summation of the power series}. Which takes function defined for the positive real values of \textbf{t} and converts it into the function of variable \textbf{s}. 
+\noindent This expression (\ref{eq:laplace}), called \textbf{Laplace transform} is nothing more than a \textbf{continuous analog to the summation of the power series}. Which takes function defined for the positive real values of \textbf{t} and converts it into the function of variable \textbf{s}. 
 
 \vfill 
 \begin{center}
