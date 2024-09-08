@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Laplace Transform, something that always bothered me and i was not quite sure about it.}
+\author{Tin Novosel}
+\date{September 2024}
+
+\begin{document}
+\maketitle
+
+When I was younger I played a lot of video games. Cheat codes were always there to make my playing much more enjoyable. The same feeling I had when I first started to use Laplace transfer, when dealing with differential equations, to one more time make my life easier. It really felt like life hack, but for long time I was not so sure where does the whole idea comes from.
+\vspace{1cm}
+
+\noindent One way to demystify the topic is to start with \textbf{power series}.
+
+\begin{equation}
+\label{eq:powerserie}
+    \sum_{n=0}^{\infty} a_n x^n = a_0 + a_1 x + a_2 x^2 + \cdots
+\end{equation}\\
+ \noindent To later the whole story becoming much more familiar, we will give generic name to the series as $A(x)$.\\
+
+ \begin{equation}
+ \label{eq:markedps}
+     \sum_{n=0}^{\infty} a_n x^n = A(x)
+ \end{equation}\\
+
+ \noindent As the $n \in \mathbb{N^+}$ and $a \in \mathbb{R}$, $n$ indexed parameter can be viewed as the discrete function $a(n)$ and equation (\ref{eq:powerserie}) becomes:\\
+ 
+ \begin{equation}
+ \label{eq:markedpss}
+     \sum_{n=0}^{\infty} a(n) x^n = A(x)
+ \end{equation}\\
+
+\newpage
+
+\noindent Now we can think of equation (\ref{eq:markedpss}) as associating discrete function of parameters of the power series to the sum of the power series, which can also be viewed as taking a discrete function defined for positive integers and converting it into continuous function.\\
+
+\begin{equation}
+    a(n) \rightarrow A(x)
+\end{equation}
+\\
+Some examples of this could be, if we take as discrete function:
+\begin{itemize}
+    \item $a(n) = 1$, left hand sight then becomes $1 + x + x^2 + x^3 + ...w$ and from \textit{Maclaurin Expansions} we can transform this power series to this exprassion $\frac{1}{1-x}$ with restricted domain to $|x| < 1$.
+
+    \item $a(n) = \frac{1}{n!}$, power series is then $1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + ...$  and this expansion equals to well known $e^x$\\
+    \\
+\end{itemize}
+
+Now, even though not motivated, let's do the continuous analog to the power series, where we are allowed to take every real value between and not only positive integers.\\
+\begin{equation}
+    n = 0,1,2,3,... \rightarrow t \in {0 \leq t < \infty}
+\end{equation}\\
+
+\noindent Summation then becomes integral over real numbers and $n$ in replaced with continuous variable $t$.\\ 
+
+\begin{equation}
+\label{eq:conti}
+    \int_0^{\infty} a(t)x^t \, dt = A(x)
+\end{equation}\\
+
+\noindent Having $x$ as a base of the exponential is not so practical thing to have when solving the integration so we will make (\ref{eq:conti}) a bit more convenient with natural base $e$.
+
+\begin{equation}
+    x^t = e^{(ln(x))t}
+\end{equation}\\
+
+\noindent Also, we want to calculate this improper integral and in order to make it converging we have to restrict the $x$.\\
+\begin{equation}
+\label{eq:xrange}
+    0 < x < 1 \rightarrow ln(x) < 0
+\end{equation}
+
+\newpage
+
+Variable $ln(x)$ is not so aesthetic to have in equation so there comes infamous \textbf{s} in game! This substitution looks like:\\
+\begin{equation}
+    -s = ln(x)
+\end{equation}\\
+
+\noindent Minus on the left side is to always have \textbf{$s$} positive because of (\ref{eq:xrange}) and functions are mostly called $f(t)$ and not $a(t)$ so this will change too, just for the looks of it. After all this cosmetic changes we finally ends up with:\\
+
+\begin{equation}
+\label{eq:laplace}
+    \int_0^{\infty} f(t)e^{-st} \, dt = F(s)
+\end{equation}\\
+
+\noindent This proposition (\ref{eq:laplace}), called \textbf{Laplace transform} is nothing more than a \textbf{continuous analog to the summation of the power series}. Which takes function defined for the positive real values of \textbf{t} and converts it into the function of variable \textbf{s}. 
+
+\vfill 
+\begin{center}
+\textit{Derivation of Laplace transform is inspired by Prof. Arthur Mattuck,\\ 
+of the Department of Mathematics, MIT lecture.}
+\end{center}
+
+ 
+\end{document}
